@@ -3,5 +3,6 @@
   <h3>The Title {{ticket.title}}</h3>
   <i class="fas fa-calendar-alt"></i> {{ticket.date | date: 'shortTime'}} &nbsp;&nbsp;
   <i class="far fa-user"></i> {{ticket.student}}
-  <i class="far fa-major"></i> {{ticket.major}}
+  <p><i [ngClass]="getTicketClass(ticket.major)"></i>&nbsp;{{ticket.major}}</p>
+
 </div>
