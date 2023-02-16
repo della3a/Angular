@@ -30,6 +30,7 @@ export class TicketComponent implements OnInit {
   selectTicket() {
     this.ticketHasBeenSelected.emit(true);
   }
+
   getTicketClass(value: string) {
     switch (value) {
       case "SI":
@@ -43,7 +44,7 @@ export class TicketComponent implements OnInit {
     }
   }
 
-  deleteTicket(ticket: Ticket) {
-    this.ticketHasBeenDeleted.emit(ticket);
+  deleteTicket() {
+    this.ticketHasBeenDeleted.emit(this.ticket);
   }
 }
