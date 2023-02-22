@@ -10,6 +10,7 @@ import { Ticket } from '../../../models/ticket';
 export class TicketListComponent implements OnInit {
 
   public ticketList: Ticket[] = [];
+  tickets$: any;
 
   constructor(public ticketService: TicketService) {
     this.ticketService.tickets$.subscribe((tickets) => this.ticketList = tickets);
@@ -21,5 +22,14 @@ export class TicketListComponent implements OnInit {
   ticketHasBeenSelected(hasBeenSelected: boolean) {
     console.log('event received from child:', hasBeenSelected);
   }
+
+  deleteTicket(ticket: Ticket) {
+    const index = this.ticketList.indexOf(ticket);
+    if (index !== -1) {
+      this.ticketList.splice(index, 1);
+      this.tickets$.next(this.ticketList);
+    }
+  }
+  
 
 }

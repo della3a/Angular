@@ -30,4 +30,16 @@ export class TicketService {
       // Update the observable with the new list of tickets
       this.tickets$.next(this.ticketList);
   }
+
+  deleteTicket(ticket: Ticket) {
+    // Find the index of the ticket in the list
+    const index = this.ticketList.findIndex(t => t === ticket);
+
+    if (index !== -1) {
+      // Remove the ticket from the list
+      this.ticketList.splice(index, 1);
+      // Update the observable with the new list of tickets
+      this.tickets$.next(this.ticketList);
+    }
+  }
 }
