@@ -4,5 +4,6 @@
   <i class="fas fa-calendar-alt"></i> {{ticket.date | date: 'shortTime'}} &nbsp;&nbsp;
   <i class="far fa-user"></i> {{ticket.student}}
   <p><i [ngClass]="getTicketClass(ticket.major)"></i>&nbsp;{{ticket.major}}</p>
-  <button class="btn-custom" (click)="deleteTicket()">Delete</button>
+  <button class="btn-custom" (click)="archiveTicket(ticket)">Archive</button>
+  <mat-icon>archive</mat-icon>
 </div>

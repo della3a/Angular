@@ -42,4 +42,16 @@ export class TicketService {
       this.tickets$.next(this.ticketList);
     }
   }
+
+  archiveTicket(ticket: Ticket) {
+    // Find the index of the ticket in the list
+    const index = this.ticketList.findIndex(t => t === ticket);
+
+    if (index !== -1) {
+      // Update the ticket to be archived
+      this.ticketList[index].archived = true;
+      // Update the observable with the new list of tickets
+      this.tickets$.next(this.ticketList);
+    }
+  }
 }

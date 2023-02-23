@@ -30,6 +30,15 @@ export class TicketListComponent implements OnInit {
       this.tickets$.next(this.ticketList);
     }
   }
+
+  archiveTicket(ticket: Ticket) {
+    const index = this.ticketList.indexOf(ticket);
+    if (index !== -1) {
+      ticket.archived = true; // marquer le ticket comme archivé
+      this.tickets$.next(this.ticketList);
+    }
+  }
+  
   
 
 }
